@@ -15,8 +15,13 @@ public class menu {
 		g.setColor(Color.white);
 		g.drawString("Dodge", Game.WIDTH/2 - 70, 100);
 		
+		Font fnt1 = new Font("arial" , Font.BOLD, 30);
+		g.setFont(fnt1);
+		g.drawString("Play", playButton.x + 19, playButton.y + 30);
 		g2d.draw(playButton);
+		g.drawString("Help", playButton.x + 19, playButton.y + 30);
 		g2d.draw(helpButton);
+		g.drawString("Quit", playButton.x + 19, playButton.y + 30);
 		g2d.draw(quitButton);
 		
 	}
