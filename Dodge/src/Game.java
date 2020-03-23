@@ -6,40 +6,57 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
-public class Game extends Canvas implements Runnable {
+public class Game extends Canvas implements Runnable { 
+	
         private static final long serialVersionUID = 1550691097823471818L;
         
-        public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
-        private Thread thread;
-        private boolean running = false;
-        private Random r;
+        public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9; // this allows us to maintain a specific game aspect ratio
+        
+        private Thread thread; // different threads to run different parts of the game, efficency
+        
+        private boolean running = false; 
+        
+        private Random r; 
+        
         private Handler handler;
-        private HUD hud;
-        private Spawn spawner;
+        
+        private HUD hud; // instance of our heads up display which displays our health bar.
+        
+        private Spawn spawner; // creates an instance of our spawn class which spawns the different characters
+        
         public Game(){
+        	
                 handler = new Handler();
                 this.addKeyListener(new KeyInput(handler));
-                new Window(WIDTH,HEIGHT,"WAVE", this);
+                new Window(WIDTH,HEIGHT,"DODGE", this);
                 hud = new HUD();
                 spawner = new Spawn(handler, hud);
                 r = new Random();
-                handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
-                handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler));
+                
+                handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // this creates our main player  
+                // WE ALSO CAN ADD A SECOND PLAYER INTO THE GAME HERE.
+                
+                handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
+                
+                
         }
-        public synchronized void start(){
+        
+        public synchronized void start(){ // if we start the game we create a thread for the game
                 thread = new Thread(this);
-                thread.start();
-                running = true;
+                thread.start(); // we then start the thread up.
+                running = true; // our instance variable running gets set to true, which means that we just started the game. 
         }
-        public synchronized void stop(){
+        
+        
+        public synchronized void stop(){ // stopping the game 
                 try{
-                        thread.join();
-                        running = false;
+                        thread.join(); 
+                        running = false; // set running to false 
                 }catch(Exception e){
                         e.printStackTrace();
                 }
         }
-        public void run(){
+        public void run(){ // this is essentially the game loop. 
                 this.requestFocus();
                 long lastTime = System.nanoTime();
                 double amountOfTicks = 60.0;
@@ -65,6 +82,7 @@ public class Game extends Canvas implements Runnable {
                         }
                 }
                 stop();
+                
         }
         private void tick(){
                 handler.tick();
@@ -78,13 +96,16 @@ public class Game extends Canvas implements Runnable {
                         return;
                 }      
                 Graphics g = bs.getDrawGraphics();
+                
                 g.setColor(Color.black);
                 g.fillRect(0, 0, WIDTH, HEIGHT);
                 handler.render(g);
                 hud.render(g);
                 g.dispose();
                 bs.show();
+                
         }
+        
         public static float clamp(float var, float min, float max){
                 if(var >= max)
                         return var = max;
@@ -92,8 +113,9 @@ public class Game extends Canvas implements Runnable {
                         return var = min;
                 else
                         return var;
+                
         }
-        public static void main(String args[]){
+        public static void main(String args[]){  // start the game
                         new Game();
         }
 }

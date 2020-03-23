@@ -7,6 +7,7 @@ public enum ID {
 	BasicEnemy(),
 	SmartEnemy(),
 	Trail(),
-	Player2();
+	Player2(),
+	bigEnemy();
 	
 }
