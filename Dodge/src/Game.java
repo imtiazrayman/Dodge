@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
+import com.sun.glass.ui.Menu;
+
 public class Game extends Canvas implements Runnable { 
 	
         private static final long serialVersionUID = 1550691097823471818L; // i am not too sure what this means
@@ -24,13 +26,17 @@ public class Game extends Canvas implements Runnable {
         
         private Spawn spawner; // creates an instance of our spawn class which spawns the different characters
         
+        public static gameState state = gameState.MENU;
+        
         public Game(){
         	
                 handler = new Handler();
+                
                 this.addKeyListener(new KeyInput(handler));
                 new Window(WIDTH,HEIGHT,"DODGE", this);
+                
                 hud = new HUD();
-                spawner = new Spawn(handler, hud);
+                spawner = new Spawn(handler, hud); 
                 r = new Random();
                 
                 handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // this creates our main player  
@@ -84,11 +90,17 @@ public class Game extends Canvas implements Runnable {
                 stop();
                 
         }
-        private void tick(){
+        
+        private void tick()
+        {
+        	if(state == gameState.GAME) {
                 handler.tick();
                 hud.tick();
                 spawner.tick();
+        	}
+        	
         }
+        
         private void render(){
                 BufferStrategy bs = this.getBufferStrategy();
                 if(bs == null){
@@ -97,14 +109,30 @@ public class Game extends Canvas implements Runnable {
                 }      
                 Graphics g = bs.getDrawGraphics();
                 
-                g.setColor(Color.black);
+               // g.drawImage( /Dodge/Dodge/src/backgroundstars.jpg  ,0, 0 , this );
+                
+                g.setColor(Color.BLUE);
                 g.fillRect(0, 0, WIDTH, HEIGHT);
-                handler.render(g);
-                hud.render(g);
+                
+                if(state == gameState.GAME) {
+                	// change background would be here. for Menu screen. 
+                	handler.render(g);
+                	hud.render(g);
+                }
+                else if(state == gameState.MENU) {
+                	menu.render(g);
+                }
+                
                 g.dispose();
                 bs.show();
                 
         }
+        
+        public static gameState getgameState() {
+        	return state;
+        }
+        
+        
         
         public static float clamp(float var, float min, float max){
                 if(var >= max)
