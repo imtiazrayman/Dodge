@@ -8,15 +8,15 @@ import java.util.Random;
 
 public class Game extends Canvas implements Runnable { 
 	
-        private static final long serialVersionUID = 1550691097823471818L;
+        private static final long serialVersionUID = 1550691097823471818L; // i am not too sure what this means
         
         public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9; // this allows us to maintain a specific game aspect ratio
         
         private Thread thread; // different threads to run different parts of the game, efficency
         
-        private boolean running = false; 
+        private boolean running = false;  // this boolean gets set to true if its running
         
-        private Random r; 
+        private Random r; // random number 
         
         private Handler handler;
         
