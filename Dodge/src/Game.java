@@ -6,8 +6,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
-import com.sun.glass.ui.Menu;
-
 public class Game extends Canvas implements Runnable { 
 	
         private static final long serialVersionUID = 1550691097823471818L; // i am not too sure what this means
