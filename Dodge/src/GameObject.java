@@ -1,22 +1,29 @@
 
 import java.awt.Graphics;
-import java.awt.Rectangle;
+import java.awt.Rectangle; 
+
 public abstract class GameObject {
 	
         protected float x,y;
+        
         protected ID id;
+        
         protected float velX, velY;
         
-        public GameObject(float x, float y, ID id)
+        
+        
+        public GameObject(float x, float y, ID id) // this class helps us to create game objects
         {
                 this.x = x;
                 this.y = y;
                 this.id = id;
         }
-        public abstract void tick();
-        public abstract void render(Graphics g);
         
-        public abstract Rectangle getBounds();
+        public abstract void tick();
+        
+        public abstract void render(Graphics g); 
+        
+        public abstract Rectangle getBounds(); 
         
         public void setX(int x){
                 this.x = x;
