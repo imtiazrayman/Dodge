@@ -4,6 +4,8 @@ import java.awt.event.KeyEvent;
 public class KeyInput extends KeyAdapter{
         private Handler handler;
         private boolean[] keyDown = new boolean[4];
+        
+        
         public KeyInput(Handler handler){
                 this.handler = handler;
                 keyDown[0] = false;
@@ -12,7 +14,9 @@ public class KeyInput extends KeyAdapter{
                 keyDown[3] = false;
         }
         public void keyPressed(KeyEvent e){
-                int key = e.getKeyCode();      
+                int key = e.getKeyCode(); 
+                gameState state = Game.getgameState();
+                if(state == gameState.GAME) {
                 for(int i = 0; i < handler.object.size(); i++){
                         GameObject tempObject = handler.object.get(i);
                         if(tempObject.getId() == ID.Player){
@@ -21,6 +25,7 @@ public class KeyInput extends KeyAdapter{
                                 if(key == KeyEvent.VK_RIGHT) { tempObject.setVelX(5); keyDown[2] = true; }
                                 if(key == KeyEvent.VK_LEFT) { tempObject.setVelX(-5); keyDown[3] = true; }
                         }
+                }
                 }
                 if(key == KeyEvent.VK_ESCAPE) System.exit(1);
         }
