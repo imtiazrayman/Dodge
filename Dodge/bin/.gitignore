@@ -16,3 +16,8 @@
 /Window.class
 /gameState.class
 /menu.class
+/statusUpdater.class
+/helpScreen.class
+/levelScreen.class
+/gameDifficultyId.class
+/playerCount.class
