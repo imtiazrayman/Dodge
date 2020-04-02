@@ -46,7 +46,7 @@ public class Spawn
 		        }      
 		    } 
 		    
-		    // Normal Mode     
+		    // Hard Mode     
 		    /*
 		    if(scoreKeep >= 500)
 		    {
@@ -72,7 +72,7 @@ public class Spawn
 		    } 
 		    */
 		    
-		    // HARD MODE
+		    // Level MODE
 		    /*if(hard mode)
 		    if(scoreKeep >= 500)
 		    {
