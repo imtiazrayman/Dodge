@@ -1,6 +1,12 @@
 
 public enum gameState {
 	MENU,
-	GAME;
-	// enums for menu.
+	GAME,
+	HELP,
+	FIRSTPLAYER, 
+	SECONDPLAYER, 
+	LEVELS,
+	NORMAL, 
+	HARD, 
+	INSANE;
 }
