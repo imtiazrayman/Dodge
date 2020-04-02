@@ -7,6 +7,7 @@ public class Window extends Canvas {
         
         public Window(int width,int height, String title, Game game)
         {
+        	
                 JFrame frame = new JFrame(title);
                 
                 frame.setPreferredSize(new Dimension(width,height));
@@ -15,9 +16,9 @@ public class Window extends Canvas {
                 
                 frame.setMinimumSize(new Dimension(width,height));  
                 
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // this code mean u activate the x button
                 
-                frame.setResizable(false);
+                frame.setResizable(false); // this is to make the screen bigger or smaller
                 
                 frame.setLocationRelativeTo(null);
                 
