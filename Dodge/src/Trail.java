@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 public class Trail extends GameObject{
+	
         private float alpha = 1;
         private float life;
         private Handler handler;

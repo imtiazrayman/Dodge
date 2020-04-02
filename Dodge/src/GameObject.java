@@ -10,8 +10,6 @@ public abstract class GameObject {
         
         protected float velX, velY;
         
-        
-        
         public GameObject(float x, float y, ID id) // this class helps us to create game objects
         {
                 this.x = x;

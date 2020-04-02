@@ -15,10 +15,11 @@ public class HUD
                 HEALTH = (int) Game.clamp(HEALTH, 0, 100);
                 greenValue = (int) Game.clamp(greenValue, 0, 255);
                 greenValue = HEALTH * 2;       
-                score++;
+                score++;    
         }
         
-        public void render(Graphics g){
+        public void render(Graphics g)
+        {
                 g.setColor(Color.gray);
                 g.fillRect(15, 15, 200, 32);
                 g.setColor(new Color(75,(int) greenValue, 0));

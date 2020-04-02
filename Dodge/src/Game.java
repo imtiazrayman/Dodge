@@ -26,19 +26,28 @@ public class Game extends Canvas implements Runnable {
         
         public static gameState state = gameState.MENU;
         
-        public Game(){
+        public menu menu;
+        
+        public Game(){ // gui manager, game map, 
         	
                 handler = new Handler();
+                menu = new menu();
+                this.addKeyListener(new KeyInput(handler)); // key input 
+                 
+                this.addMouseListener(new MouseInput()); // mouse input 
                 
-                this.addKeyListener(new KeyInput(handler));
                 new Window(WIDTH,HEIGHT,"DODGE", this);
                 
-                hud = new HUD();
-                spawner = new Spawn(handler, hud); 
-                r = new Random();
+                hud = new HUD(); 
                 
+                spawner = new Spawn(handler, hud); 
+                
+                r = new Random(); 
+                //menu = new menu();
                 handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // this creates our main player  
+                
                 // WE ALSO CAN ADD A SECOND PLAYER INTO THE GAME HERE.
+                handler.addObject(new Player(WIDTH/2-32 + 100, HEIGHT/2-32 + 100, ID.Player2, handler)); // this creates our main player  
                 
                 handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
                 
@@ -58,7 +67,7 @@ public class Game extends Canvas implements Runnable {
                         running = false; // set running to false 
                 }catch(Exception e){
                         e.printStackTrace();
-                }
+                }  
         }
         public void run(){ // this is essentially the game loop. 
                 this.requestFocus();
@@ -67,7 +76,7 @@ public class Game extends Canvas implements Runnable {
                 double ns = 1000000000 / amountOfTicks;
                 double delta = 0;
                 long timer = System.currentTimeMillis();
-                int frames = 0;
+                int frames = 0; 
                 while(running){
                         long now = System.nanoTime();
                         delta += (now - lastTime) / ns;
@@ -105,6 +114,7 @@ public class Game extends Canvas implements Runnable {
                         this.createBufferStrategy(3);
                         return;
                 }      
+                
                 Graphics g = bs.getDrawGraphics();
                 
                // g.drawImage( /Dodge/Dodge/src/backgroundstars.jpg  ,0, 0 , this );
@@ -115,7 +125,8 @@ public class Game extends Canvas implements Runnable {
                 if(state == gameState.GAME) {
                 	// change background would be here. for Menu screen. 
                 	handler.render(g);
-                	hud.render(g);
+                	hud.render(g); // hud gets displayed here . I need to make 2 of the hud bars
+                	
                 }
                 else if(state == gameState.MENU) {
                 	menu.render(g);

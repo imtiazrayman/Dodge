@@ -3,18 +3,23 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Random;
-public class Player extends GameObject{
-        Random r = new Random();
+
+
+public class Player2 extends GameObject{
+ 
+		Random r = new Random();
         Handler handler;
         
         
-        public Player(int x,int y, ID id, Handler handler){
+        public Player2(int x,int y, ID id, Handler handler){
                 super(x, y, id);
                 this.handler = handler;
         }
+        
         public Rectangle getBounds(){
                 return new Rectangle((int) x,(int) y, 32, 32);
         }
+        
         public void tick(){
                 x += velX;
                 y += velY;     
@@ -38,7 +43,8 @@ public class Player extends GameObject{
         }
         public void render(Graphics g){
         	
-                g.setColor(Color.white); // so far our player is a white block but we can make a sprite for the player. 
+                g.setColor(Color.green); // so far our player is a white block but we can make a sprite for the player. 
+                
                 g.fillRect((int)x,(int)y,32,32);       
         }
 }

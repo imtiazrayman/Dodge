@@ -7,14 +7,12 @@
 /ID.class
 /KeyInput.class
 /LevelBoss.class
+/MouseInput.class
 /Player.class
+/Player2.class
 /SmartEnemy.class
 /Spawn.class
 /Trail.class
 /Window.class
-/backgroundstars.jpg
 /gameState.class
-/Menu.class
-/Menu2.class
 /menu.class
-/gamePackage/
