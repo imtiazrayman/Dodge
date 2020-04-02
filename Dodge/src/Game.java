@@ -24,14 +24,30 @@ public class Game extends Canvas implements Runnable {
         
         private Spawn spawner; // creates an instance of our spawn class which spawns the different characters
         
-        public static gameState state = gameState.MENU;
+        public static gameState state = gameState.MENU; // This is the state of the game this is what differenciates if we are in what screen. 
+        
+        public static gameDifficultyId difficulty = gameDifficultyId.NORMAL;  // As a default the game is set to normal mode unless the user changes the difficulty.
+        
+        public static playerCount playersInGame = playerCount.SINGLEPLAYER;  // this refers to an enum which has the different modes of selection As a default game is set to single player/
+        
+        
         
         public menu menu;
+        
+        public helpScreen helpScreen;
+        
+        public levelScreen levelScreen;
+        
+        
         
         public Game(){ // gui manager, game map, 
         	
                 handler = new Handler();
                 menu = new menu();
+                helpScreen = new helpScreen();
+                levelScreen = new levelScreen();
+                
+                
                 this.addKeyListener(new KeyInput(handler)); // key input 
                  
                 this.addMouseListener(new MouseInput()); // mouse input 
@@ -52,16 +68,19 @@ public class Game extends Canvas implements Runnable {
                 handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
                 
                 
+                
         }
         
-        public synchronized void start(){ // if we start the game we create a thread for the game
+        public synchronized void start()
+        { // if we start the game we create a thread for the game
                 thread = new Thread(this);
                 thread.start(); // we then start the thread up.
                 running = true; // our instance variable running gets set to true, which means that we just started the game. 
         }
         
         
-        public synchronized void stop(){ // stopping the game 
+        public synchronized void stop()
+        { // stopping the game 
                 try{
                         thread.join(); 
                         running = false; // set running to false 
@@ -69,6 +88,7 @@ public class Game extends Canvas implements Runnable {
                         e.printStackTrace();
                 }  
         }
+        
         public void run(){ // this is essentially the game loop. 
                 this.requestFocus();
                 long lastTime = System.nanoTime();
@@ -119,18 +139,39 @@ public class Game extends Canvas implements Runnable {
                 
                // g.drawImage( /Dodge/Dodge/src/backgroundstars.jpg  ,0, 0 , this );
                 
-                g.setColor(Color.BLUE);
-                g.fillRect(0, 0, WIDTH, HEIGHT);
+               
                 
                 if(state == gameState.GAME) {
                 	// change background would be here. for Menu screen. 
+                	g.setColor(Color.BLUE);
+                    g.fillRect(0, 0, WIDTH, HEIGHT);
                 	handler.render(g);
                 	hud.render(g); // hud gets displayed here . I need to make 2 of the hud bars
                 	
                 }
                 else if(state == gameState.MENU) {
+                	 g.setColor(Color.cyan);
+                     g.fillRect(0, 0, WIDTH, HEIGHT);
                 	menu.render(g);
+              
                 }
+                else if(state == gameState.HELP) {
+                	 g.setColor(Color.MAGENTA);
+                     g.fillRect(0, 0, WIDTH, HEIGHT);
+                	helpScreen.render(g);
+                	
+                }
+                else if(state == gameState.LEVELS) {
+                	 g.setColor(Color.red);
+                     g.fillRect(0, 0, WIDTH, HEIGHT);
+                	levelScreen.render(g);
+                }
+                
+                
+                
+                
+                
+                
                 
                 g.dispose();
                 bs.show();
