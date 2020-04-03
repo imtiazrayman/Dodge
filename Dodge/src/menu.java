@@ -2,13 +2,16 @@ import java.awt.*;
 
 public class menu {
 	
+	statusUpdater status = new statusUpdater();
+	
+	
 	//Rectangle(x , y, width, height_
 	public Rectangle playButton = new Rectangle(Game.WIDTH/2 - 50 , 150, 100, 50); // placing the rectangles which will hold the menu items
 	public Rectangle helpButton = new Rectangle(Game.WIDTH/2 - 50 , 250, 100, 50);
 	public Rectangle quitButton = new Rectangle(Game.WIDTH/2 - 50, 350, 100, 50); 
 	
 	//public Rectangle normalButton = new Rectangle(Game.WIDTH/2 - 50 + 200, 150, 150, 50);
-	public Rectangle levelButton = new Rectangle(Game.WIDTH/2 - 50 + 200, 250, 150, 50);
+	public Rectangle levelButton = new Rectangle(Game.WIDTH/2 - 50 + 150, 250, 150, 50);
 	//public Rectangle insaneButton = new Rectangle(Game.WIDTH/2 - 50 + 200, 350, 150, 50);
 
 	public Rectangle mulitplayerButton = new Rectangle(Game.WIDTH/2 - 50 - 200, 250, 150, 50); 
@@ -48,7 +51,10 @@ public class menu {
 		g.drawString("Difficulty", levelButton.x + 40 , levelButton.y + 30); // include spawner
 		g2d.draw(levelButton);
 		
-		g.drawString("", statusReport.x + 19 , statusReport.y + 19); // I need to put a string for the update of the information that the user presses
+		String selectedOptions = status.statusUpdater();
+		selectedOptions += "\n";
+		
+		g.drawString( selectedOptions , statusReport.x + 19 , statusReport.y + 19); // I need to put a string for the update of the information that the user presses
 		g2d.draw(statusReport);
 		
 		g.drawString("Muliplayer Settings", mulitplayerButton.x + 5 , mulitplayerButton.y + 26); // include player
