@@ -63,7 +63,7 @@ public class MouseInput implements MouseListener{
 					}
 				}
 			// This is the difficulty
-			if(mx >= Game.WIDTH/2 - 50 + 200 && mx <= Game.WIDTH /2 + 50 + 200 + 150) { // I am looking for my mouse to have the input in the box so i start at original x,y and set the boundaries for where the 
+			if(mx >= Game.WIDTH/2 - 50 + 150 && mx <= Game.WIDTH /2 - 50 + 300 ) { // I am looking for my mouse to have the input in the box so i start at original x,y and set the boundaries for where the 
 				// the rectangle should lay.
 				
 				if(my >= 250 && my < 300) {
@@ -71,8 +71,14 @@ public class MouseInput implements MouseListener{
 					Game.state = gameState.LEVELS;
 				}
 			}
-			
-			
+			if(mx >= Game.WIDTH/2 - 50 - 200 && mx <= Game.WIDTH /2  - 50 - 200 + 150 ) { // I am looking for my mouse to have the input in the box so i start at original x,y and set the boundaries for where the 
+				// the rectangle should lay.
+				
+				if(my >= 250 && my < 300) { // i start with first location and add the height to it so the button is in this part of the screen.
+					//pressed the play button
+					Game.state = gameState.PLAYERSELECT;
+			}
+		}
 			
 		}
 			
@@ -86,27 +92,27 @@ public class MouseInput implements MouseListener{
 				
 				if(my >= 150 && my < 200) {
 					//pressed the play button
-					Game.state = gameState.NORMAL;
+					Game.difficulty = gameDifficultyId.NORMAL;
 				}
 			}
 			
-			// THIS IS THE HELP BUTTON. 
+			// THIS IS THE HARD BUTTON. 
 			if(mx >= Game.WIDTH/2 - 50 && mx <= Game.WIDTH /2 + 50 ) { // I am looking for my mouse to have the input in the box so i start at original x,y and set the boundaries for where the 
 				// the rectangle should lay.
 				
 				if(my >= 250 && my < 300) {
 					//pressed the play button
-					Game.state = gameState.HARD;
+					Game.difficulty = gameDifficultyId.HARD;
 				}
 			}
 			
-			// THIS IS THE EXIT BUTTON
+			// THIS IS THE INSANE BUTTON
 			if(mx >= Game.WIDTH/2 - 50 && mx <= Game.WIDTH /2 + 50 ) { // I am looking for my mouse to have the input in the box so i start at original x,y and set the boundaries for where the 
 						// the rectangle should lay.
 						
 				if(my >= 350 && my < 400) { // i start with first location and add the height to it so the button is in this part of the screen.
 					//pressed the play button
-					Game.state = gameState.INSANE;
+					Game.difficulty = gameDifficultyId.INSANE;
 					}
 				}
 			
@@ -114,12 +120,11 @@ public class MouseInput implements MouseListener{
 			if(mx >= Game.WIDTH/2 - 50 - 200 && mx <= Game.WIDTH /2  - 50 - 200 + 150 ) { // I am looking for my mouse to have the input in the box so i start at original x,y and set the boundaries for where the 
 						// the rectangle should lay.
 						
-				if(my >= 250 && my < 300) { // i start with first location and add the height to it so the button is in this part of the screen.
+				if(my >= 350 && my < 400) { // i start with first location and add the height to it so the button is in this part of the screen.
 					//pressed the play button
 					Game.state = gameState.MENU;
 					}
 				}
-		
 		}
 		
 		// these are the controls if we were to click the help button and was in the help screen. 
@@ -138,47 +143,43 @@ public class MouseInput implements MouseListener{
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		// These are the controls if we were to click the MULTIPLAYER BUTTONS
+		if(Game.getgameState() == gameState.PLAYERSELECT)
+		{
+			// THIS IS THE NORMAL MODE BUTTON
+			if(mx >= Game.WIDTH/2 - 50 && mx <= Game.WIDTH /2 + 50 ) { // I am looking for my mouse to have the input in the box so i start at original x,y and set the boundaries for where the 
+				// the rectangle should lay.
+				
+				if(my >= 150 && my < 200) {
+					//pressed the play button
+					Game.playersInGame = playerCount.SINGLEPLAYER;
+				}
+			}
+			
+			// THIS IS THE HARD BUTTON. 
+			if(mx >= Game.WIDTH/2 - 50 && mx <= Game.WIDTH /2 + 50 ) { // I am looking for my mouse to have the input in the box so i start at original x,y and set the boundaries for where the 
+				// the rectangle should lay.
+				
+				if(my >= 250 && my < 300) {
+					//pressed the play button
+					Game.playersInGame = playerCount.MULTIPLAYER;
+				}
+			}
+			
+			
+			// THIS IS THE GO BACK BUTTON TO THE MENU
+			if(mx >= Game.WIDTH/2 - 50 - 200 && mx <= Game.WIDTH /2  - 50 - 200 + 150 ) { // I am looking for my mouse to have the input in the box so i start at original x,y 
+				//and set the boundaries for where the 
+						// the rectangle should lay.
+						
+				if(my >= 350 && my < 400) 
+				{ // i start with first location and add the height to it so the button is in this part of the screen.
+					//pressed the play button
+					Game.state = gameState.MENU;
+					}
+				}
+		}			
+
 	}
 
 	@Override
