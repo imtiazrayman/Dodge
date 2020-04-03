@@ -7,13 +7,18 @@ import java.awt.Rectangle;
 
 public class levelScreen {
 	
+	statusUpdater status = new statusUpdater();
+	
 	public Rectangle normalButton = new Rectangle(Game.WIDTH/2 - 50 , 150, 100, 50);
 	// placing the rectangles which will hold the menu items
 	public Rectangle hardButton = new Rectangle(Game.WIDTH/2 - 50 , 250, 100, 50);
 	
 	public Rectangle insaneButton = new Rectangle(Game.WIDTH/2 - 50, 350, 100, 50);  
 	
-	public Rectangle gobackButton = new Rectangle(Game.WIDTH/2 - 50 - 200, 250, 150, 50); 
+	public Rectangle gobackButton = new Rectangle(Game.WIDTH/2 - 50 - 200, 350, 150, 50); 
+	
+	public Rectangle statusReport = new Rectangle(Game.WIDTH/2 - 50 - 200, 50, 150 , 150); 
+	
 	
 	// need to make a go back button.
 	
@@ -33,7 +38,7 @@ public class levelScreen {
 			
 			g.setColor(Color.white);
 			
-			g.drawString("Help Screen", Game.WIDTH/2 - 70, 100);
+			g.drawString("Difficulty", Game.WIDTH/2 - 70, 100);
 			
 			Font fnt1 = new Font("arial" , Font.BOLD, 15);
 			g.setFont(fnt1);
@@ -49,6 +54,11 @@ public class levelScreen {
 			
 			g.drawString("Go Back", gobackButton.x + 19 , gobackButton.y + 30); // spawner 
 			g2d.draw(gobackButton);
+			
+			
+			
+			g.drawString(status.statusUpdater(), statusReport.x + 19 , statusReport.y + 19); // I need to put a string for the update of the information that the user presses
+			g2d.draw(statusReport);
 			
 		
 			
