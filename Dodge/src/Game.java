@@ -38,6 +38,8 @@ public class Game extends Canvas implements Runnable {
         
         public levelScreen levelScreen;
         
+        public PlayerSelection playerselect;
+        
         
         
         public Game(){ // gui manager, game map, 
@@ -46,6 +48,7 @@ public class Game extends Canvas implements Runnable {
                 menu = new menu();
                 helpScreen = new helpScreen();
                 levelScreen = new levelScreen();
+                playerselect = new PlayerSelection(); // I made the worst mistake and not put this , gave me null pointer execption that was fun lol
                 
                 
                 this.addKeyListener(new KeyInput(handler)); // key input 
@@ -137,41 +140,36 @@ public class Game extends Canvas implements Runnable {
                 
                 Graphics g = bs.getDrawGraphics();
                 
-               // g.drawImage( /Dodge/Dodge/src/backgroundstars.jpg  ,0, 0 , this );
-                
-               
-                
                 if(state == gameState.GAME) {
                 	// change background would be here. for Menu screen. 
                 	g.setColor(Color.BLUE);
                     g.fillRect(0, 0, WIDTH, HEIGHT);
                 	handler.render(g);
-                	hud.render(g); // hud gets displayed here . I need to make 2 of the hud bars
-                	
+                	hud.render(g); // hud gets displayed here . I need to make 2 of the hud bars           	
                 }
                 else if(state == gameState.MENU) {
                 	 g.setColor(Color.cyan);
                      g.fillRect(0, 0, WIDTH, HEIGHT);
                 	menu.render(g);
-              
                 }
+                
                 else if(state == gameState.HELP) {
                 	 g.setColor(Color.MAGENTA);
                      g.fillRect(0, 0, WIDTH, HEIGHT);
                 	helpScreen.render(g);
-                	
                 }
+                
                 else if(state == gameState.LEVELS) {
-                	 g.setColor(Color.red);
+                	 g.setColor(Color.BLACK);
                      g.fillRect(0, 0, WIDTH, HEIGHT);
                 	levelScreen.render(g);
                 }
                 
-                
-                
-                
-                
-                
+                else if(state == gameState.PLAYERSELECT) {
+               	 	g.setColor(Color.darkGray);
+                    g.fillRect(0, 0, WIDTH, HEIGHT);
+                    playerselect.render(g);
+               }
                 
                 g.dispose();
                 bs.show();
