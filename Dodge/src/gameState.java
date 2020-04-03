@@ -3,10 +3,10 @@ public enum gameState {
 	MENU,
 	GAME,
 	HELP,
-	FIRSTPLAYER, 
-	SECONDPLAYER, 
-	LEVELS,
-	NORMAL, 
-	HARD, 
-	INSANE;
+	PLAYERSELECT,
+	LEVELS;
+	
 }
+
+
+
