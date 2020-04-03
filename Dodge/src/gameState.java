@@ -4,8 +4,8 @@ public enum gameState {
 	GAME,
 	HELP,
 	PLAYERSELECT,
-	LEVELS;
-	
+	LEVELS,
+
 }
 
 
