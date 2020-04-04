@@ -5,6 +5,8 @@ public class helpScreen {
 	
 	
 		public Rectangle playButton = new Rectangle(Game.WIDTH/2 - 50 , 150, 100, 50); // placing the rectangles which will hold the menu items
+		
+		
 
 		
 		// if we wanted to add more options we just create another rectangle drop it down 100 and add a string to it.
@@ -31,6 +33,33 @@ public class helpScreen {
 			g.drawString("Go back", playButton.x + 19, playButton.y + 30); //  placing the text within the rectangles
 			g2d.draw(playButton);
 			
+			g.drawString("This game is a single or multiplayer Game", 15 , playButton.y + 50); // classic example of winging it lol
+			g.drawString("First Player uses UP, DOWN, LEFT , RIGH ARROW KEYS TO MOVE ", 15 , playButton.y + 70); 
+			g.drawString("SECOND Player uses W, A, S ,D  KEYS TO MOVE", 15, playButton.y + 90); 
+			
+			g2d.draw(playButton);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			statusUpdater status = new statusUpdater();
+			String selectedOptions = status.statusUpdater();
+			selectedOptions += "\n";
+			//15, 15, 200, 32
+			g.setColor(Color.white);
+			
+			Font fnt12 = new Font( "arial" , Font.ITALIC, 20);
+			g.setFont(fnt1);
+			
+			
+			g.drawString( selectedOptions , 15 , 15); // I need to put a string for the update of the information that the user presses
+			//g2d.draw(statusReport);
+
 		
 			
 			
