@@ -8,6 +8,8 @@ public enum ID {
 	SmartEnemy(),
 	Trail(),
 	Player2(),
-	bigEnemy();
+	bigEnemy(),
+	shootingEnemy(),
+	angleEnemy();
 	
 }
