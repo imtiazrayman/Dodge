@@ -63,10 +63,15 @@ public class Game extends Canvas implements Runnable {
                 
                 r = new Random(); 
                 //menu = new menu();
+                if(playersInGame == playerCount.SINGLEPLAYER) {
                 handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // this creates our main player  
+                }
                 
                 // WE ALSO CAN ADD A SECOND PLAYER INTO THE GAME HERE.
-                handler.addObject(new Player(WIDTH/2-32 + 100, HEIGHT/2-32 + 100, ID.Player2, handler)); // this creates our main player  
+                if(playersInGame == playerCount.MULTIPLAYER) {
+                	handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // this creates our main player
+                	handler.addObject(new Player(WIDTH/2-32 + 100, HEIGHT/2-32 + 100, ID.Player2, handler)); // this creates our main player  
+                }
                 
                 handler.addObject(new angleEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
                 

@@ -21,8 +21,7 @@ public class Spawn
         {
 	        scoreKeep++; 
 	        
-	        // DIFFIFuLTY SETTING 
-	        // EASY 
+
 	       
 	        if(Game.difficulty == gameDifficultyId.NORMAL) {
 			    if(scoreKeep >= 500)
@@ -31,7 +30,6 @@ public class Spawn
 			        hud.setLevel(hud.getLevel() + 1);
 			        
 			
-			        
 			        if(hud.getLevel() == 2)
 			        {
 			        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
