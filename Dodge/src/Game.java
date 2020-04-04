@@ -10,11 +10,11 @@ public class Game extends Canvas implements Runnable {
 	
         private static final long serialVersionUID = 1550691097823471818L; // i am not too sure what this means
         
-        public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9; // this allows us to maintain a specific game aspect ratio
+        public static final int WIDTH = 740, HEIGHT = WIDTH / 12 * 9; // this allows us to maintain a specific game aspect ratio // width used to be 640
         
-        private Thread thread; // different threads to run different parts of the game, efficency
+        private Thread thread; // different threads to run different parts of the game, efficency t
         
-        private boolean running = false;  // this boolean gets set to true if its running
+        public static boolean running = false;  // this boolean gets set to true if its running (this used to be private bool running
         
         private Random r; // random number 
         
@@ -40,6 +40,9 @@ public class Game extends Canvas implements Runnable {
         
         public PlayerSelection playerselect;
         
+        public WinGameScreen winning;
+        
+        public LoseGameScreen lostGame;
         
         
         public Game(){ // gui manager, game map, 
@@ -49,7 +52,8 @@ public class Game extends Canvas implements Runnable {
                 helpScreen = new helpScreen();
                 levelScreen = new levelScreen();
                 playerselect = new PlayerSelection(); // I made the worst mistake and not put this , gave me null pointer execption that was fun lol
-                
+                winning = new WinGameScreen();
+                lostGame = new LoseGameScreen();
                 
                 this.addKeyListener(new KeyInput(handler)); // key input 
                  
@@ -65,16 +69,22 @@ public class Game extends Canvas implements Runnable {
                 //menu = new menu();
                 if(playersInGame == playerCount.SINGLEPLAYER) {
                 	handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // this creates our main player  
+
+                    handler.addObject(new angleEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.angleEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
+                    handler.addObject(new shootingEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.shootingEnemy, handler , true)); // THIS STARTS OUT WITH OUR BASIC ENEMY
+                    
                 }
                 
                 // WE ALSO CAN ADD A SECOND PLAYER INTO THE GAME HERE.
                 if(playersInGame == playerCount.MULTIPLAYER) {
                 	handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // this creates our main player
-                	
                 	handler.addObject(new Player2(WIDTH/2-32 + 100, HEIGHT/2-32 + 100, ID.Player2, handler)); // this creates our main player  
+
+                    handler.addObject(new angleEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.angleEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
+                    handler.addObject(new shootingEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.shootingEnemy, handler , true)); // THIS STARTS OUT WITH OUR BASIC ENEMY
+                    
                 }
                 
-                handler.addObject(new angleEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
                 
                 
                 
@@ -96,6 +106,7 @@ public class Game extends Canvas implements Runnable {
                 }catch(Exception e){
                         e.printStackTrace();
                 }  
+                
         }
         
         public void run(){ // this is essentially the game loop. 
@@ -151,7 +162,7 @@ public class Game extends Canvas implements Runnable {
                 	g.setColor(Color.BLUE);
                     g.fillRect(0, 0, WIDTH, HEIGHT);
                 	handler.render(g);
-                	hud.render(g); // hud gets displayed here . I need to make 2 of the hud bars           	
+                	hud.render(g); // hud gets displayed here . I need to make 2 of the hud bars         
                 }
                 else if(state == gameState.MENU) {
                 	 g.setColor(Color.cyan);
@@ -176,6 +187,16 @@ public class Game extends Canvas implements Runnable {
                     g.fillRect(0, 0, WIDTH, HEIGHT);
                     playerselect.render(g);
                }
+                else if(Game.state == gameState.WIN) {
+                	g.setColor(Color.darkGray);
+                	g.fillRect(0, 0, WIDTH, HEIGHT);
+                    winning.render(g);
+                }
+                else if(Game.state == gameState.LOSE) {
+                	g.setColor(Color.darkGray);
+                	g.fillRect(0, 0, WIDTH, HEIGHT);
+                	lostGame.render(g);
+                }
                 
                 g.dispose();
                 bs.show();
