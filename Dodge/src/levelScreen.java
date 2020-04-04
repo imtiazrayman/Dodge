@@ -55,11 +55,18 @@ public class levelScreen {
 			g.drawString("Go Back", gobackButton.x + 19 , gobackButton.y + 30); // spawner 
 			g2d.draw(gobackButton);
 			
+			statusUpdater status = new statusUpdater();
+			String selectedOptions = status.statusUpdater();
+			selectedOptions += "\n";
+			//15, 15, 200, 32
+			g.setColor(Color.white);
+			
+			Font fnt12 = new Font( "arial" , Font.ITALIC, 20);
+			g.setFont(fnt1);
 			
 			
-			g.drawString(status.statusUpdater(), statusReport.x + 19 , statusReport.y + 19); // I need to put a string for the update of the information that the user presses
-			g2d.draw(statusReport);
-			
+			g.drawString( selectedOptions , 15 , 15); // I need to put a string for the update of the information that the user presses
+			//g2d.draw(statusReport);
 		
 			
 			
