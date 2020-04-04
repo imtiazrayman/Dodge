@@ -41,7 +41,7 @@ public class PlayerSelection {
 			Font fnt1 = new Font("arial" , Font.BOLD, 15);
 			g.setFont(fnt1);
 			
-			g.drawString("Single Player", singleButton.x + 19 , singleButton.y + 30); // spawner
+			g.drawString("Single Player", singleButton.x + 5 , singleButton.y + 30); // spawner
 			g2d.draw(singleButton);
 			
 			g.drawString("Two Player", twoButton.x + 19 , twoButton.y + 30); // include spawner
@@ -51,9 +51,18 @@ public class PlayerSelection {
 			g2d.draw(gobackButton);
 			
 			
+			statusUpdater status = new statusUpdater();
+			String selectedOptions = status.statusUpdater();
+			selectedOptions += "\n";
+			//15, 15, 200, 32
+			g.setColor(Color.white);
 			
-			g.drawString(status.statusUpdater(), statusReport.x + 19 , statusReport.y + 19); // I need to put a string for the update of the information that the user presses
-			g2d.draw(statusReport);
+			Font fnt12 = new Font( "arial" , Font.ITALIC, 20);
+			g.setFont(fnt1);
+			
+			
+			g.drawString( selectedOptions , 15 , 15); // I need to put a string for the update of the information that the user presses
+			//g2d.draw(statusReport);
 			
 		
 			
