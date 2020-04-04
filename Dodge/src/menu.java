@@ -51,17 +51,21 @@ public class menu {
 		g.drawString("Difficulty", levelButton.x + 40 , levelButton.y + 30); // include spawner
 		g2d.draw(levelButton);
 		
-		String selectedOptions = status.statusUpdater();
-		selectedOptions += "\n";
-		
-		g.drawString( selectedOptions , statusReport.x + 19 , statusReport.y + 19); // I need to put a string for the update of the information that the user presses
-		g2d.draw(statusReport);
-		
 		g.drawString("Muliplayer Settings", mulitplayerButton.x + 5 , mulitplayerButton.y + 26); // include player
 		g2d.draw(mulitplayerButton);
 		
+		
+		String selectedOptions = status.statusUpdater();
+		selectedOptions += "\n";
+		//15, 15, 200, 32
+		g.setColor(Color.white);
+		
+		Font fnt12 = new Font( "arial" , Font.ITALIC, 20);
+		g.setFont(fnt1);
+		
+		
+		g.drawString( selectedOptions , 15 , 15); // I need to put a string for the update of the information that the user presses
+		//g2d.draw(statusReport);
 
-		
-		
 	}
 }
