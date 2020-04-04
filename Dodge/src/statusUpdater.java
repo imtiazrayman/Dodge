@@ -19,10 +19,12 @@ public class statusUpdater {
 		}
 		
 		if(Game.playersInGame == playerCount.SINGLEPLAYER) {
-			PlayerMode = "SINGLE PLAYER";
+			PlayerMode = "SINGLE-PLAYER";
+			
 		}
 		if(Game.playersInGame == playerCount.MULTIPLAYER) {
-			PlayerMode = "MULTI PLAYER";
+			PlayerMode = "MULTIPLAYER";
+			Game.playersInGame = playerCount.MULTIPLAYER;
 		}
 		
 		
