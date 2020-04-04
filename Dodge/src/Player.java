@@ -27,11 +27,16 @@ public class Player extends GameObject{
         }
         private void collision(){
                 for(int i = 0; i < handler.object.size(); i++){
-                GameObject tempObject = handler.object.get(i);
-                
-                if(tempObject.getId() == ID.BasicEnemy || tempObject.getId()==ID.FastEnemy||tempObject.getId()== ID.SmartEnemy){
-                   if(getBounds().intersects(tempObject.getBounds())){
+                GameObject tempObject = handler.object.get(i); 
+                // these are the new objects that our player touches 
+                if(tempObject.getId() == ID.BasicEnemy || tempObject.getId()==ID.FastEnemy||tempObject.getId()== ID.SmartEnemy
+                		|| tempObject.getId() == ID.angleEnemy || tempObject.getId() == ID.shootingEnemy ){ // maybe later on we could have the different enemies be worth a different amount of hits
+                   
+                	if(getBounds().intersects(tempObject.getBounds())){
                       HUD.HEALTH -= 2; // the health bar is subtracted by 2 for all enemies, but we can make variable different damage points for hitting the enemy,
+                      if(HUD.HEALTH == 0) { // this is if the player health drops to 0 // 
+                    	  Game.state = gameState.LOSE;
+                      }
                       }
                    }
                 }
