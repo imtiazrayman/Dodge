@@ -5,7 +5,8 @@ public enum gameState {
 	HELP,
 	PLAYERSELECT,
 	LEVELS,
-
+	LOSE,
+	WIN;
 }
 
 
