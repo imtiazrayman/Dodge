@@ -68,7 +68,7 @@ public class Game extends Canvas implements Runnable {
                 // WE ALSO CAN ADD A SECOND PLAYER INTO THE GAME HERE.
                 handler.addObject(new Player(WIDTH/2-32 + 100, HEIGHT/2-32 + 100, ID.Player2, handler)); // this creates our main player  
                 
-                handler.addObject(new angleEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
+                handler.addObject(new shootingEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler, true)); // THIS STARTS OUT WITH OUR BASIC ENEMY
                 
                 
                 
