@@ -1,21 +1,18 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Rectangle;
-public class HUD 
+public class HUD2 
 {
+	
+	// this is supposed to be a second Heads up display for if you play as a second player
+	// this is supposed to appear on the far right whereas the first hud is on the far left.
+	
         public static float HEALTH = 100;
         
         private float greenValue = 255;
         
         private int score = 0;
         private int level = 1;
-        
-        //(15, 15, 200, 32)
-        // (x, y, width, height) 
-        public Rectangle pauseButton = new Rectangle(Game.WIDTH/2 - 50 , 250, 100, 50);
-        public Rectangle resumebutton = new Rectangle(Game.WIDTH/2 - 50 , 250, 100, 50);
-        
         
         public void tick()
         {
