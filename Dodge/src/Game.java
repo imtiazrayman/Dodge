@@ -165,25 +165,25 @@ public class Game extends Canvas implements Runnable {
                 	hud.render(g); // hud gets displayed here . I need to make 2 of the hud bars         
                 }
                 else if(state == gameState.MENU) {
-                	 g.setColor(Color.cyan);
+                	g.setColor(Color.BLACK);
                      g.fillRect(0, 0, WIDTH, HEIGHT);
                 	menu.render(g);
                 }
                 
                 else if(state == gameState.HELP) {
-                	 g.setColor(Color.MAGENTA);
+                	g.setColor(Color.BLACK);
                      g.fillRect(0, 0, WIDTH, HEIGHT);
                 	helpScreen.render(g);
                 }
                 
                 else if(state == gameState.LEVELS) {
-                	 g.setColor(Color.BLACK);
+                	g.setColor(Color.BLACK);
                      g.fillRect(0, 0, WIDTH, HEIGHT);
                 	levelScreen.render(g);
                 }
                 
                 else if(state == gameState.PLAYERSELECT) {
-               	 	g.setColor(Color.darkGray);
+                	g.setColor(Color.BLACK);
                     g.fillRect(0, 0, WIDTH, HEIGHT);
                     playerselect.render(g);
                }

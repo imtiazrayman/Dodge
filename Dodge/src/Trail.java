@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+
 public class Trail extends GameObject{
 	
         private float alpha = 1;
@@ -26,7 +27,8 @@ public class Trail extends GameObject{
         	this.life = life;
         	
         }
-        public void tick(){
+        public void tick()
+        {
                 if(alpha > life){
                         alpha -= (life - 0.0001f);
                 }else handler.removeObject(this);

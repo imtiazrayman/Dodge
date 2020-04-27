@@ -178,7 +178,20 @@ public class MouseInput implements MouseListener{
 					Game.state = gameState.MENU;
 					}
 				}
-		}			
+		}
+		if(Game.getgameState() == gameState.LOSE) {
+			
+			if(my >= 250 && my < 300) {
+				Game.state = gameState.MENU;
+			}
+		}
+		
+	   if(Game.getgameState() == gameState.WIN) {
+			
+			if(my >= 250 && my < 300) {
+				Game.state = gameState.MENU;
+			}
+		}
 
 	}
 

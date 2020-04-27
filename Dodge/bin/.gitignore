@@ -1,4 +1,7 @@
-/HUD2.class
-/EndGame.class
-/WinGameScreen.class
-/LoseGameScreen.class
+/backgroundstars.jpg
+/helpScreen.class
+/levelScreen.class
+/menu.class
+/playerCount.class
+/shootingEnemy.class
+/statusUpdater.class

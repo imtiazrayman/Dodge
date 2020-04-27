@@ -10,7 +10,7 @@ public class LoseGameScreen {
 	
 	public HUD stats = new HUD();
 	
-	public Rectangle replayButton = new Rectangle(Game.WIDTH/2 - 50 , 250, 100, 50);
+	public Rectangle replayButton = new Rectangle(Game.WIDTH/2 - 50 , 250, 100, 50); 
 	
 	public Rectangle playButton = new Rectangle(Game.WIDTH/2 - 50 , 150, 100, 50);
 
@@ -45,7 +45,7 @@ public class LoseGameScreen {
 		//g.drawString("You have won with a score of " + score + " and a level of " + level ,10,playButton.y + 30 + 30);
 		
 		
-		g.drawString("Replay", replayButton.x + 19, replayButton.y + 30); // include run help screen help class
-		g2d.draw(replayButton);
+			g.drawString("Replay", replayButton.x + 19, replayButton.y + 30); // include run help screen help class
+			g2d.draw(replayButton);
 		}
 }
