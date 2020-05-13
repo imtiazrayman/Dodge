@@ -5,3 +5,6 @@
 /playerCount.class
 /shootingEnemy.class
 /statusUpdater.class
+/HUD2.class
+/LoseGameScreen.class
+/WinGameScreen.class
