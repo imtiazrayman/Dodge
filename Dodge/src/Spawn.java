@@ -27,7 +27,8 @@ public class Spawn
 			    {
 			        scoreKeep = 0;
 			        hud.setLevel(hud.getLevel() + 1);
-			        
+		        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler));
+		        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 150), r.nextInt(Game.HEIGHT - 150), ID.SmartEnemy, handler));
 			
 			        if(hud.getLevel() == 2)
 			        {
@@ -62,6 +63,10 @@ public class Spawn
 		    {
 		        scoreKeep = 0;
 		        hud.setLevel(hud.getLevel() + 1);
+	        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler));
+	        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 150), r.nextInt(Game.HEIGHT - 150), ID.SmartEnemy, handler));
+	        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 250), r.nextInt(Game.HEIGHT - 250), ID.SmartEnemy, handler));
+	        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 250), r.nextInt(Game.HEIGHT - 250), ID.SmartEnemy, handler));
 		        
 		        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
 		        
@@ -127,6 +132,10 @@ public class Spawn
 			        handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler));
 			        handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 150), r.nextInt(Game.HEIGHT - 150), ID.SmartEnemy, handler));
 			        handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 250), r.nextInt(Game.HEIGHT - 250), ID.SmartEnemy, handler));
+		        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler));
+		        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 150), r.nextInt(Game.HEIGHT - 150), ID.SmartEnemy, handler));
+		        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 250), r.nextInt(Game.HEIGHT - 250), ID.SmartEnemy, handler));
+		        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 250), r.nextInt(Game.HEIGHT - 250), ID.SmartEnemy, handler));
 			        
 			        if(hud.getLevel() == 2)
 			        {

@@ -183,6 +183,9 @@ public class MouseInput implements MouseListener{
 			
 			if(my >= 250 && my < 300) {
 				Game.state = gameState.MENU;
+				HUD.HEALTH = 100; 
+				
+				
 			}
 		}
 		
@@ -190,6 +193,7 @@ public class MouseInput implements MouseListener{
 			
 			if(my >= 250 && my < 300) {
 				Game.state = gameState.MENU;
+				HUD.HEALTH = 100; 
 			}
 		}
 

@@ -70,12 +70,17 @@ public class Game extends Canvas implements Runnable {
 
                 if(playersInGame == playerCount.SINGLEPLAYER ) {
                 	handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // this creates our main player  
+		        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler));
+
+                    handler.addObject(new angleEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.angleEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
+                    handler.addObject(new shootingEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.shootingEnemy, handler , true)); // THIS STARTS OUT WITH OUR BASIC ENEMY
                 }
                 else if(playersInGame == playerCount.MULTIPLAYER) {
 
                 if(playersInGame == playerCount.MULTIPLAYER) {
                 	handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // this creates our main player
                 	handler.addObject(new Player2(WIDTH/2-32 + 100, HEIGHT/2-32 + 100, ID.Player2, handler)); // this creates our main player  
+		        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler));
 
                     handler.addObject(new angleEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.angleEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
                     handler.addObject(new shootingEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.shootingEnemy, handler , true)); // THIS STARTS OUT WITH OUR BASIC ENEMY
