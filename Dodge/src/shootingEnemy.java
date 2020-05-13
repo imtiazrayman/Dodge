@@ -20,6 +20,7 @@ public class shootingEnemy extends GameObject{
         y += velY;
         if(y <= 0 || y >= Game.HEIGHT - 32) velY *= -1;
         if(x <= 0 || x >= Game.WIDTH - 16) velX *= -1;
+
         
         handler.addObject(new Trail((int)x,(int) y, ID.Trail, Color.blue, 16, 16, 0.02f,handler));
         if(this.shouldShoot){
@@ -32,6 +33,14 @@ public class shootingEnemy extends GameObject{
     }
     public void render(Graphics g){
         g.setColor(Color.PINK);
-        g.fillRect((int)x,(int)y,16,16);
+
+        handler.addObject(new Trail((int)x,(int) y, ID.Trail, Color.blue, 16, 16, 0.02f,handler));
+        if(this.shouldShoot){
+            this.shouldShoot = false;
+            handler.addObject(new Trail((int)x + velX,(int) y + velY, ID.Trail, Color.blue, 16, 16, 0.02f,handler));
+        }
+        else {
+            this.shouldShoot = true;
+        }
     }
 }

@@ -21,7 +21,6 @@ public class Spawn
         {
 	        scoreKeep++; 
 	        
-
 	       
 	        if(Game.difficulty == gameDifficultyId.NORMAL) {
 			    if(scoreKeep >= 500)
@@ -52,6 +51,7 @@ public class Spawn
 			        		
 			        	//}
 			        }
+
 			    } 
 	        }
 
@@ -73,15 +73,15 @@ public class Spawn
 		        }
 		        else if(hud.getLevel() == 3){
 		        	handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
-		        	handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler));
+
 		        	handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
 		        }
 		        else if(hud.getLevel() == 4){
-		        	handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 250), r.nextInt(Game.HEIGHT - 250), ID.SmartEnemy, handler));
-	                 handler.addObject(new shootingEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.shootingEnemy, handler , true)); // THIS STARTS OUT WITH OUR BASIC ENEMY
-	                 handler.addObject(new angleEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.angleEnemy, handler)); // THIS STARTS OUT WITH OUR BASIC ENEMY
-	                 handler.addObject(new shootingEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.shootingEnemy, handler , true));	
-		      	
+
+		        	handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler));
+		        	handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler));
+		        	handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler));
+
 		        }
 		        else if(hud.getLevel() == 5)
 		        {
@@ -111,9 +111,12 @@ public class Spawn
 		        
 		    }
 	        }
+
+		           
 		    
+	        	    
+
 		 
-		    // Level MODE
 	        // YOU WILL NOT SURVIVE LOL
 		     if(Game.difficulty == gameDifficultyId.INSANE) {
 			    if(scoreKeep >= 500)
@@ -162,7 +165,7 @@ public class Spawn
 			        		
 			        	//}
 			        }
-			        
+
 			        
 			        
 			        
