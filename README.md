@@ -1,6 +1,9 @@
 # Dodge
 Software Engineering Game, this game is a single player game which will have a single player. The game will include different levels, characters, power-ups, environmental changes/obstacles, etc.
-This Game was based the game Wave from realtutsgml https://www.youtube.com/user/RealTutsGML?app=desktop
+This Game was based the game Wave from realtutsgml
+https://www.youtube.com/user/RealTutsGML?app=desktop
+
+# Diagrams and screenshots
 ![image](https://user-images.githubusercontent.com/61753398/82093661-8d36e780-96c9-11ea-82b5-e6f183f57dfe.png)
 
 ![image](https://user-images.githubusercontent.com/61753398/82093677-93c55f00-96c9-11ea-883d-7557abd5669e.png)
